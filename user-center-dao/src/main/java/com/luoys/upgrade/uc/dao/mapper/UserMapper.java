@@ -1,17 +1,27 @@
 package com.luoys.upgrade.uc.dao.mapper;
 
-
+import com.luoys.upgrade.uc.dao.po.UserPO;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
 
-    @Select("select passwd from `user` where account_id=#{accountId}")
-    String getPasswdByAccount(@Param("accountId") String accountId);
+    int insert(UserPO userPO);
 
-    @Select("select status from `user` where account_id=#{accountId} and passwd=#{passwd}")
-    String getUserLevel(@Param("accountId") String accountId, @Param("passwd") String passwd);
+    int update(UserPO userPO);
 
+    UserPO selectByLoginInfo(@Param("loginName") String loginName, @Param("password") String password);
+
+    UserPO selectByLoginName(String loginName);
+
+    UserPO selectByUserId(String userId);
+
+    int deleteByPrimaryKey(Integer id);
+
+    int insertSelective(UserPO record);
+
+    int updateByPrimaryKeySelective(UserPO record);
+
+    int updateByPrimaryKey(UserPO record);
 }

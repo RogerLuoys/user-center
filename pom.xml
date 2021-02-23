@@ -26,6 +26,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <luoys.common.version>1.0.1-SNAPSHOT</luoys.common.version>
     </properties>
 
 
@@ -60,4 +61,14 @@
 
         </dependencies>
     </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.luoys</groupId>
+            <artifactId>common</artifactId>
+            <version>${luoys.common.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

@@ -1,14 +1,15 @@
 package com.luoys.upgrade.uc.manager;
 
-public interface UserManager {
+import com.luoys.upgrade.uc.api.bo.UserBO;
 
-    /**
-     * 确认账号是否存在
-     * @param accountId
-     * 账号
-     * @param passwd
-     * 密码
-     * @return
-     */
-    boolean checkAccount(String accountId, String passwd);
+public interface UserManager {
+    Integer modifyUser(UserBO userBO);
+
+    UserBO queryByLoginInfo(String loginName, String passWord);
+
+    UserBO queryByUserId(String userId);
+
+    Boolean checkUserExist(String loginName);
+
+    Integer newUser(UserBO userBO);
 }

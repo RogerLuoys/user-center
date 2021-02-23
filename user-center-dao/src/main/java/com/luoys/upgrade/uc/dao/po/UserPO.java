@@ -1,9 +1,17 @@
-package com.luoys.upgrade.uc.api.bo;
+package com.luoys.upgrade.uc.dao.po;
 
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * user
+ * @author
+ */
 @Data
-public class UserBO {
+public class UserPO implements Serializable {
+    private Integer id;
 
     private String userId;
 
@@ -31,4 +39,9 @@ public class UserBO {
      */
     private Integer status;
 
+    private Date gmtCreate;
+
+    private Date gmtModified;
+
+    private static final long serialVersionUID = 1L;
 }
