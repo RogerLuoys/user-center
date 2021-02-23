@@ -26,6 +26,12 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <uc.api.version>1.0.1-SNAPSHOT</uc.api.version>
+        <uc.dao.version>1.0.1-SNAPSHOT</uc.dao.version>
+        <uc.manager.version>1.0.1-SNAPSHOT</uc.manager.version>
+        <uc.schedule.version>1.0.1-SNAPSHOT</uc.schedule.version>
+        <uc.service.version>1.0.1-SNAPSHOT</uc.service.version>
         <luoys.common.version>1.0.1-SNAPSHOT</luoys.common.version>
     </properties>
 
@@ -36,22 +42,22 @@
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>
                 <artifactId>user-center-api</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${uc.api.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>
                 <artifactId>user-center-dao</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${uc.dao.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>
                 <artifactId>user-center-manager</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${uc.manager.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>
                 <artifactId>user-center-service</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
+                <version>${uc.service.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>
