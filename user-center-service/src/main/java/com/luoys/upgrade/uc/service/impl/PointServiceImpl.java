@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-@RestController
-@RequestMapping(value = "/point")
+@Deprecated
+//@RestController
+//@RequestMapping(value = "/point")
 public class PointServiceImpl implements PointService {
 
     private static final Logger LOG = LoggerFactory.getLogger(PointServiceImpl.class);

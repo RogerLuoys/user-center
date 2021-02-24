@@ -13,4 +13,6 @@ public interface UserService {
     Result<Integer> register(UserBO userBO);
 
     Result<Integer> modifyUser(UserBO userBO);
+
+    String sayHello (String var);
 }
