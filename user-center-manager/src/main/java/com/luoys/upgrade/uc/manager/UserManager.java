@@ -3,7 +3,7 @@ package com.luoys.upgrade.uc.manager;
 import com.luoys.upgrade.uc.share.dto.UserDTO;
 
 public interface UserManager {
-    Integer modifyUser(UserDTO userDTO);
+    String modifyUser(UserDTO userDTO);
 
     UserDTO queryByLoginInfo(String loginName, String passWord);
 
@@ -11,5 +11,5 @@ public interface UserManager {
 
     Boolean checkUserExist(String loginName);
 
-    Integer newUser(UserDTO userDTO);
+    String newUser(UserDTO userDTO);
 }

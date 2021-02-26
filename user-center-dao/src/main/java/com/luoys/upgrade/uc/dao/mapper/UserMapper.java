@@ -17,6 +17,8 @@ public interface UserMapper {
 
     UserPO selectByUserId(String userId);
 
+    UserPO select(UserPO userPO);
+
     int deleteByPrimaryKey(Integer id);
 
     int insertSelective(UserPO record);
