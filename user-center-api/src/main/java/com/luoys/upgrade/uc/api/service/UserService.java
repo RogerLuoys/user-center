@@ -5,6 +5,7 @@ import com.luoys.upgrade.uc.api.bo.UserBO;
 
 import java.util.List;
 
+@Deprecated
 public interface UserService {
     Result<UserBO> login(String loginName, String password);
 

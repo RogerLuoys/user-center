@@ -1,9 +1,9 @@
-package com.luoys.upgrade.uc.api.bo;
+package com.luoys.upgrade.uc.share.dto;
 
 import lombok.Data;
-@Deprecated
+
 @Data
-public class UserBO {
+public class UserDTO {
 
     private String userId;
 
@@ -30,5 +30,4 @@ public class UserBO {
      * 1-正常；
      */
     private Integer status;
-
 }
