@@ -75,7 +75,7 @@
 
         <dependency>
             <groupId>com.luoys.upgrade</groupId>
-            <artifactId>user-center-api</artifactId>
+            <artifactId>user-center-share</artifactId>
         </dependency>
         <dependency>
             <groupId>com.luoys.upgrade</groupId>

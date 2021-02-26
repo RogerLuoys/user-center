@@ -1,12 +1,12 @@
 package com.luoys.upgrade.uc.manager.impl;
 
 import com.luoys.common.api.NumberSender;
-import com.luoys.upgrade.uc.api.bo.UserBO;
 import com.luoys.upgrade.uc.dao.mapper.PointMapper;
 import com.luoys.upgrade.uc.dao.mapper.UserMapper;
 import com.luoys.upgrade.uc.dao.po.PointPO;
 import com.luoys.upgrade.uc.manager.UserManager;
 import com.luoys.upgrade.uc.manager.transform.TransformUser;
+import com.luoys.upgrade.uc.share.dto.UserDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +28,15 @@ public class UserManagerImpl implements UserManager {
     private PointMapper pointMapper;
 
     @Override
-    public Integer modifyUser(UserBO userBO) {
-        if (userBO == null) {
+    public Integer modifyUser(UserDTO userDTO) {
+        if (userDTO == null) {
             return null;
         }
-        return userMapper.update(TransformUser.transformBO2PO(userBO));
+        return userMapper.update(TransformUser.transformBO2PO(userDTO));
     }
 
     @Override
-    public UserBO queryByLoginInfo(String loginName, String passWord) {
+    public UserDTO queryByLoginInfo(String loginName, String passWord) {
         if (loginName == null || passWord == null) {
             return null;
         }
@@ -44,7 +44,7 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public UserBO queryByUserId(String userId) {
+    public UserDTO queryByUserId(String userId) {
         if (null == userId) {
             return null;
         }
@@ -61,28 +61,28 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public Integer newUser(UserBO userBO) {
-        if (userBO == null || userBO.getLoginName() == null || userBO.getPassword() == null) {
+    public Integer newUser(UserDTO userDTO) {
+        if (userDTO == null || userDTO.getLoginName() == null || userDTO.getPassword() == null) {
             LOG.error("----》入参为空");
             return null;
         }
-        if (userBO.getUserName() == null) {
-            userBO.setUserName(DEFAULT_USER_NAME);
+        if (userDTO.getUserName() == null) {
+            userDTO.setUserName(DEFAULT_USER_NAME);
         }
-        if (userBO.getType() == null) {
-            userBO.setType(DEFAULT_TYPE);
+        if (userDTO.getType() == null) {
+            userDTO.setType(DEFAULT_TYPE);
         }
-        if (userBO.getStatus() == null) {
-            userBO.setStatus(DEFAULT_STATUS);
+        if (userDTO.getStatus() == null) {
+            userDTO.setStatus(DEFAULT_STATUS);
         }
-        userBO.setUserId(NumberSender.createUserId());
-        LOG.info("====》新增用户：{}", userBO);
-        int insertUserResult = userMapper.insert(TransformUser.transformBO2PO(userBO));
+        userDTO.setUserId(NumberSender.createUserId());
+        LOG.info("====》新增用户：{}", userDTO);
+        int insertUserResult = userMapper.insert(TransformUser.transformBO2PO(userDTO));
         PointPO pointPO = new PointPO();
         pointPO.setUsablePoint(0);
         pointPO.setExpendPoint(0);
         pointPO.setStatus(1);
-        pointPO.setOwnerId(userBO.getUserId());
+        pointPO.setOwnerId(userDTO.getUserId());
         pointPO.setPointId(NumberSender.createPointId());
         LOG.info("====》新增积分账号：{}", pointPO);
         int insertPointResult = pointMapper.insert(pointPO);

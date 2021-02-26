@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>user-center-share</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>${uc.share.version}</version>
     <packaging>jar</packaging>
 
     <properties>

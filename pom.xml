@@ -28,7 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <uc.api.version>1.0.1-SNAPSHOT</uc.api.version>
+        <uc.share.version>1.0.1-SNAPSHOT</uc.share.version>
         <uc.dao.version>1.0.1-SNAPSHOT</uc.dao.version>
         <uc.manager.version>1.0.1-SNAPSHOT</uc.manager.version>
         <uc.schedule.version>1.0.1-SNAPSHOT</uc.schedule.version>
@@ -57,8 +57,8 @@
 
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>
-                <artifactId>user-center-api</artifactId>
-                <version>${uc.api.version}</version>
+                <artifactId>user-center-share</artifactId>
+                <version>${uc.share.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.luoys.upgrade</groupId>

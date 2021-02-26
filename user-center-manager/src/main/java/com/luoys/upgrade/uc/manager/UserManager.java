@@ -1,15 +1,15 @@
 package com.luoys.upgrade.uc.manager;
 
-import com.luoys.upgrade.uc.api.bo.UserBO;
+import com.luoys.upgrade.uc.share.dto.UserDTO;
 
 public interface UserManager {
-    Integer modifyUser(UserBO userBO);
+    Integer modifyUser(UserDTO userDTO);
 
-    UserBO queryByLoginInfo(String loginName, String passWord);
+    UserDTO queryByLoginInfo(String loginName, String passWord);
 
-    UserBO queryByUserId(String userId);
+    UserDTO queryByUserId(String userId);
 
     Boolean checkUserExist(String loginName);
 
-    Integer newUser(UserBO userBO);
+    Integer newUser(UserDTO userDTO);
 }
