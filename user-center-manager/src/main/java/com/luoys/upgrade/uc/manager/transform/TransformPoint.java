@@ -2,7 +2,7 @@ package com.luoys.upgrade.uc.manager.transform;
 
 import com.luoys.upgrade.uc.api.bo.PointBO;
 import com.luoys.upgrade.uc.dao.po.PointPO;
-
+@Deprecated
 public class TransformPoint {
 
     public static PointBO transformPO2BO(PointPO po) {

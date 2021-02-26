@@ -3,7 +3,7 @@ package com.luoys.upgrade.uc.api.bo;
 import lombok.Data;
 
 import java.util.Date;
-
+@Deprecated
 @Data
 public class PointLogBO {
 

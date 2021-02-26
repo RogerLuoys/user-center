@@ -1,7 +1,7 @@
 package com.luoys.upgrade.uc.api.bo;
 
 import lombok.Data;
-
+@Deprecated
 @Data
 public class PointBO {
 

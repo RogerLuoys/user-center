@@ -5,7 +5,7 @@ import com.luoys.upgrade.uc.api.bo.PointBO;
 import com.luoys.upgrade.uc.api.bo.PointLogBO;
 
 import java.util.List;
-
+@Deprecated
 public interface PointService {
 
     Result<PointBO> queryPointSummary(String ownerId);

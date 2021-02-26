@@ -5,7 +5,7 @@ import com.luoys.upgrade.uc.dao.po.PointLogPO;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Deprecated
 public class TransformPointLog {
 
     public static PointLogBO transformPO2BO(PointLogPO po) {
