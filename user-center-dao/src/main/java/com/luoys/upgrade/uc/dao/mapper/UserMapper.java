@@ -11,7 +11,8 @@ public interface UserMapper {
 
     int update(UserPO userPO);
 
-    UserPO selectByLoginInfo(@Param("loginName") String loginName, @Param("password") String password);
+    UserPO selectByLoginInfo(@Param("loginName") String loginName,
+                             @Param("phone") String phone, @Param("password") String password);
 
     UserPO selectByLoginName(String loginName);
 

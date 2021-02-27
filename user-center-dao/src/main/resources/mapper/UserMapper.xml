@@ -62,8 +62,13 @@
         <include refid="Base_Column_List" />
         from user
         where is_delete = 0
-        and login_name = #{loginName,jdbcType=VARCHAR}
         and pass_word = #{password,jdbcType=VARCHAR}
+        <if test="loginName != null">
+            and login_name = #{loginName,jdbcType=VARCHAR},
+        </if>
+        <if test="phone != null">
+            and phone = #{phone,jdbcType=VARCHAR},
+        </if>
     </select>
 
     <select id="selectByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">

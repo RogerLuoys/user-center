@@ -28,15 +28,23 @@ public class UserManagerImpl implements UserManager {
         if (userDTO == null) {
             return null;
         }
-        return userMapper.update(TransformUser.transformBO2PO(userDTO)) == 1 ? SUCCESS : "修改用户信息失败";
+        return userMapper.update(TransformUser.transformBO2PO(userDTO)) == 1 ? SUCCESS : null;
     }
 
     @Override
-    public UserDTO queryByLoginInfo(String loginName, String passWord) {
+    public UserDTO queryByLoginName(String loginName, String passWord) {
         if (loginName == null || passWord == null) {
             return null;
         }
-        return TransformUser.transformPO2BO(userMapper.selectByLoginInfo(loginName, passWord));
+        return TransformUser.transformPO2BO(userMapper.selectByLoginInfo(loginName, null, passWord));
+    }
+
+    @Override
+    public UserDTO queryByPhone(String phone, String passWord) {
+        if (phone == null || passWord == null) {
+            return null;
+        }
+        return TransformUser.transformPO2BO(userMapper.selectByLoginInfo(null, phone, passWord));
     }
 
     @Override
@@ -53,7 +61,7 @@ public class UserManagerImpl implements UserManager {
             LOG.error("----》入参为空");
             return null;
         }
-        return null == userMapper.selectByLoginName(loginName) ? false : true;
+        return null != userMapper.selectByLoginName(loginName) ? true : false;
     }
 
     @Override
@@ -74,15 +82,7 @@ public class UserManagerImpl implements UserManager {
         userDTO.setUserId(NumberSender.createUserId());
         LOG.info("====》新增用户：{}", userDTO);
         int insertUserResult = userMapper.insert(TransformUser.transformBO2PO(userDTO));
-//        PointPO pointPO = new PointPO();
-//        pointPO.setUsablePoint(0);
-//        pointPO.setExpendPoint(0);
-//        pointPO.setStatus(1);
-//        pointPO.setOwnerId(userDTO.getUserId());
-//        pointPO.setPointId(NumberSender.createPointId());
-//        LOG.info("====》新增积分账号：{}", pointPO);
-//        int insertPointResult = pointMapper.insert(pointPO);
-        return insertUserResult == 1 ? SUCCESS : "注册用户失败";
+        return insertUserResult == 1 ? SUCCESS : null;
     }
 }
 

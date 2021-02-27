@@ -19,12 +19,18 @@ public class UserServiceImpl implements UserService {
     private UserManager userManager;
 
     @Override
-    public Result<UserDTO> login(String loginName, String password){
-        LOG.info("====》用户登录开始：loginName={}, password={}", loginName, password);
+    public Result<UserDTO> login(String loginName, String phone, String password){
+        LOG.info("====》用户登录开始：loginName={}, phone={} password={}", loginName, phone, password);
         if (false == userManager.checkUserExist(loginName)) {
             return Result.error(null, "登录名不存在");
         }
-        return Result.ifSuccess(userManager.queryByLoginInfo(loginName, password));
+        if (null != loginName) {
+            return Result.ifSuccess(userManager.queryByLoginName(loginName, password));
+        } else if (null != phone) {
+            return Result.ifSuccess(userManager.queryByPhone(phone, password));
+        } else {
+            return Result.error(null);
+        }
     }
 
     @Override
@@ -34,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result<Integer> register(UserDTO userDTO){
+    public Result<String> register(UserDTO userDTO){
         LOG.info("====》注册用户开始：{}", userDTO);
         if (true == userManager.checkUserExist(userDTO.getLoginName())) {
             return Result.error(null, "登录名已被注册");
@@ -43,7 +49,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result<Integer> modifyUser(UserDTO userDTO){
+    public Result<String> modifyUser(UserDTO userDTO){
         LOG.info("====》修改用户信息开始：{}", userDTO);
         return Result.ifSuccess(userManager.modifyUser(userDTO));
     }

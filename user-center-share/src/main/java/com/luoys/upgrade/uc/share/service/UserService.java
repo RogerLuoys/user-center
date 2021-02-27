@@ -4,13 +4,13 @@ import com.luoys.common.api.Result;
 import com.luoys.upgrade.uc.share.dto.UserDTO;
 
 public interface UserService {
-    Result<UserDTO> login(String loginName, String password);
+    Result<UserDTO> login(String loginName, String phone, String password);
 
     Result<UserDTO> queryByUserId(String userId);
 
-    Result<Integer> register(UserDTO userBO);
+    Result<String> register(UserDTO userBO);
 
-    Result<Integer> modifyUser(UserDTO userBO);
+    Result<String> modifyUser(UserDTO userBO);
 
     String sayHello (String var);
 }

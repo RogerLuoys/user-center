@@ -5,7 +5,9 @@ import com.luoys.upgrade.uc.share.dto.UserDTO;
 public interface UserManager {
     String modifyUser(UserDTO userDTO);
 
-    UserDTO queryByLoginInfo(String loginName, String passWord);
+    UserDTO queryByLoginName(String loginName, String passWord);
+
+    UserDTO queryByPhone(String phone, String passWord);
 
     UserDTO queryByUserId(String userId);
 
