@@ -75,11 +75,6 @@
                 <artifactId>user-center-service</artifactId>
                 <version>${uc.service.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.luoys.upgrade</groupId>
-                <artifactId>user-center-dao</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
-            </dependency>
 
         </dependencies>
     </dependencyManagement>
