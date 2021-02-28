@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result<String> register(UserDTO userDTO){
+    public Result<UserDTO> register(UserDTO userDTO){
         LOG.info("====》注册用户开始：{}", userDTO);
         if (true == userManager.checkUserExist(userDTO.getLoginName())) {
             return Result.error(null, "登录名已被注册");

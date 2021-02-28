@@ -13,5 +13,5 @@ public interface UserManager {
 
     Boolean checkUserExist(String loginName);
 
-    String newUser(UserDTO userDTO);
+    UserDTO newUser(UserDTO userDTO);
 }

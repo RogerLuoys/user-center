@@ -65,7 +65,7 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public String newUser(UserDTO userDTO) {
+    public UserDTO newUser(UserDTO userDTO) {
         if (userDTO == null || userDTO.getLoginName() == null || userDTO.getPassword() == null) {
             LOG.error("----》入参为空");
             return null;
@@ -82,7 +82,7 @@ public class UserManagerImpl implements UserManager {
         userDTO.setUserId(NumberSender.createUserId());
         LOG.info("====》新增用户：{}", userDTO);
         int insertUserResult = userMapper.insert(TransformUser.transformBO2PO(userDTO));
-        return insertUserResult == 1 ? SUCCESS : null;
+        return insertUserResult == 1 ? userDTO : null;
     }
 }
 

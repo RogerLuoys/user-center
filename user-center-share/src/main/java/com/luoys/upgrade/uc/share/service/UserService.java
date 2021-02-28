@@ -8,7 +8,7 @@ public interface UserService {
 
     Result<UserDTO> queryByUserId(String userId);
 
-    Result<String> register(UserDTO userBO);
+    Result<UserDTO> register(UserDTO userBO);
 
     Result<String> modifyUser(UserDTO userBO);
 
