@@ -28,7 +28,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <uc.share.version>1.0.1-SNAPSHOT</uc.share.version>
+        <uc.share.version>1.0.2-SNAPSHOT</uc.share.version>
         <uc.dao.version>1.0.1-SNAPSHOT</uc.dao.version>
         <uc.manager.version>1.0.1-SNAPSHOT</uc.manager.version>
         <uc.schedule.version>1.0.1-SNAPSHOT</uc.schedule.version>
