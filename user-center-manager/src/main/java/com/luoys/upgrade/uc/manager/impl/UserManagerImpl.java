@@ -5,6 +5,8 @@ import com.luoys.upgrade.uc.dao.mapper.UserMapper;
 import com.luoys.upgrade.uc.manager.UserManager;
 import com.luoys.upgrade.uc.manager.transform.TransformUser;
 import com.luoys.upgrade.uc.share.dto.UserDTO;
+import com.luoys.upgrade.uc.share.enums.UserStatus;
+import com.luoys.upgrade.uc.share.enums.UserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,10 +76,10 @@ public class UserManagerImpl implements UserManager {
             userDTO.setUserName(DEFAULT_USER_NAME);
         }
         if (userDTO.getType() == null) {
-            userDTO.setType(DEFAULT_TYPE);
+            userDTO.setType(UserType.REGULAR.getType());
         }
         if (userDTO.getStatus() == null) {
-            userDTO.setStatus(DEFAULT_STATUS);
+            userDTO.setStatus(UserStatus.NORMAL.getStatus());
         }
         userDTO.setUserId(NumberSender.createUserId());
         LOG.info("====》新增用户：{}", userDTO);
