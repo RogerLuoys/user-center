@@ -3,16 +3,17 @@ package com.luoys.upgrade.uc.share.enums;
 import lombok.Getter;
 
 @Getter
-public enum UserType {
+public enum UserTypeEnum {
 
     ADMIN(1, "管理员"),
     REGULAR(2, "普通账号");
 
-    private final Integer type;
+    private final Integer code;
     private final String description;
 
-    UserType(Integer type, String description) {
-        this.type = type;
+    UserTypeEnum(Integer code, String description) {
+        this.code = code;
         this.description = description;
     }
+
 }

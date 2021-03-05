@@ -3,15 +3,16 @@ package com.luoys.upgrade.uc.share.enums;
 import lombok.Getter;
 
 @Getter
-public enum UserStatus {
+public enum UserStatusEnum {
 
     NORMAL(1, "正常");
 
-    private final Integer status;
+    private final Integer code;
     private final String description;
 
-    UserStatus(Integer status, String description) {
-        this.status = status;
+    UserStatusEnum(Integer code, String description) {
+        this.code = code;
         this.description = description;
     }
+
 }
