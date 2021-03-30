@@ -63,7 +63,7 @@ public class UserManagerImpl implements UserManager {
             LOG.error("----》入参为空");
             return null;
         }
-        return null != userMapper.selectByLoginName(loginName) ? true : false;
+        return null != userMapper.selectByLoginName(loginName);
     }
 
     @Override
