@@ -54,12 +54,12 @@ public class UserServiceImpl implements UserService {
         return Result.ifSuccess(userManager.modifyUser(userDTO));
     }
 
-    @Override
-    public String sayHello(String name) {
-        LOG.info("====》调用hello：{}", name);
-        System.out.println("hello");
-        return "调用dubbo成功"+name;
-    }
+//    @Override
+//    public String sayHello(String name) {
+//        LOG.info("====》调用hello：{}", name);
+//        System.out.println("hello");
+//        return "调用dubbo成功"+name;
+//    }
 }
 
 

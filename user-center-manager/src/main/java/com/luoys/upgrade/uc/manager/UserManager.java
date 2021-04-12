@@ -1,17 +1,20 @@
 package com.luoys.upgrade.uc.manager;
 
+import com.luoys.common.annotation.NotNull;
 import com.luoys.upgrade.uc.share.dto.UserDTO;
 
 public interface UserManager {
-    String modifyUser(UserDTO userDTO);
+    String modifyUser(@NotNull UserDTO userDTO);
 
-    UserDTO queryByLoginName(String loginName, String passWord);
+    UserDTO queryByLoginName(@NotNull String loginName, @NotNull String passWord);
 
-    UserDTO queryByPhone(String phone, String passWord);
+    UserDTO queryByPhone(@NotNull String phone, @NotNull String passWord);
 
-    UserDTO queryByUserId(String userId);
+    UserDTO queryByUserId(@NotNull String userId);
 
-    Boolean checkUserExist(String loginName);
+    Boolean checkUserExist(@NotNull String loginName);
 
-    UserDTO newUser(UserDTO userDTO);
+    UserDTO newUser(@NotNull UserDTO userDTO);
+
+    String removeUser(@NotNull String userId);
 }

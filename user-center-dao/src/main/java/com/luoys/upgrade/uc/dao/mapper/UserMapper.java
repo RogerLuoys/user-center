@@ -11,6 +11,8 @@ public interface UserMapper {
 
     int update(UserPO userPO);
 
+    int deleteByUserId(@Param("userId") String userId);
+
     UserPO selectByLoginInfo(@Param("loginName") String loginName,
                              @Param("phone") String phone, @Param("password") String password);
 

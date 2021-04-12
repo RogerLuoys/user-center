@@ -1,5 +1,6 @@
 package com.luoys.upgrade.uc.manager.impl;
 
+import com.luoys.common.annotation.NotNull;
 import com.luoys.common.api.NumberSender;
 import com.luoys.upgrade.uc.dao.mapper.UserMapper;
 import com.luoys.upgrade.uc.manager.UserManager;
@@ -85,6 +86,11 @@ public class UserManagerImpl implements UserManager {
         LOG.info("====》新增用户：{}", userDTO);
         int insertUserResult = userMapper.insert(TransformUser.transformBO2PO(userDTO));
         return insertUserResult == 1 ? userDTO : null;
+    }
+
+    @Override
+    public String removeUser(@NotNull String userId) {
+        return userMapper.deleteByUserId(userId) == 1 ? "删除成功" : null;
     }
 }
 

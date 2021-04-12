@@ -12,5 +12,4 @@ public interface UserService {
 
     Result<String> modifyUser(UserDTO userBO);
 
-    String sayHello (String var);
 }
