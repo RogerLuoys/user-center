@@ -88,9 +88,5 @@ public class UserManagerImpl implements UserManager {
         return insertUserResult == 1 ? userDTO : null;
     }
 
-    @Override
-    public String removeUser(@NotNull String userId) {
-        return userMapper.deleteByUserId(userId) == 1 ? "删除成功" : null;
-    }
 }
 

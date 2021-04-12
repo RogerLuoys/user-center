@@ -16,5 +16,4 @@ public interface UserManager {
 
     UserDTO newUser(@NotNull UserDTO userDTO);
 
-    String removeUser(@NotNull String userId);
 }
