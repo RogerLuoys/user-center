@@ -22,14 +22,14 @@ public class UserServiceImpl implements UserService {
     public Result<UserDTO> login(String loginName, String phone, String password){
         LOG.info("====》用户登录开始：loginName={}, phone={} password={}", loginName, phone, password);
         if (false == userManager.checkUserExist(loginName)) {
-            return Result.error(null, "登录名不存在");
+            return Result.error("登录名不存在");
         }
         if (null != loginName) {
             return Result.ifSuccess(userManager.queryByLoginName(loginName, password));
         } else if (null != phone) {
             return Result.ifSuccess(userManager.queryByPhone(phone, password));
         } else {
-            return Result.error(null);
+            return Result.error("未知异常");
         }
     }
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     public Result<UserDTO> register(UserDTO userDTO){
         LOG.info("====》注册用户开始：{}", userDTO);
         if (true == userManager.checkUserExist(userDTO.getLoginName())) {
-            return Result.error(null, "登录名已被注册");
+            return Result.error("登录名已被注册");
         }
         return Result.ifSuccess(userManager.newUser(userDTO));
     }
