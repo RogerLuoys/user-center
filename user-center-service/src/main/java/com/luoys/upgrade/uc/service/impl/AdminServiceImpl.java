@@ -1,6 +1,7 @@
 package com.luoys.upgrade.uc.service.impl;
 
 import com.luoys.common.api.Result;
+import com.luoys.upgrade.uc.manager.AdminManager;
 import com.luoys.upgrade.uc.share.service.AdminService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.slf4j.Logger;
@@ -13,7 +14,7 @@ public class AdminServiceImpl implements AdminService {
     private static final Logger LOG = LoggerFactory.getLogger(AdminServiceImpl.class);
 
     @Autowired
-    private AdminService adminService;
+    private AdminManager adminManager;
 
     @Override
     public Result<String> removeUser(String userId) {
@@ -21,6 +22,6 @@ public class AdminServiceImpl implements AdminService {
         if (userId == null) {
             return Result.error("userId不能为空");
         }
-        return Result.ifSuccess(adminService.removeUser(userId));
+        return Result.ifSuccess(adminManager.removeUser(userId));
     }
 }
