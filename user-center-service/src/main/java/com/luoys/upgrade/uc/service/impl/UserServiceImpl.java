@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result<UserDTO> login(String loginName, String phone, String password){
         LOG.info("====》用户登录开始：loginName={}, phone={} password={}", loginName, phone, password);
-        if (false == userManager.checkUserExist(loginName)) {
+        if (!userManager.checkUserExist(loginName)) {
             return Result.error("登录名不存在");
         }
         if (null != loginName) {
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result<UserDTO> register(UserDTO userDTO){
         LOG.info("====》注册用户开始：{}", userDTO);
-        if (true == userManager.checkUserExist(userDTO.getLoginName())) {
+        if (userManager.checkUserExist(userDTO.getLoginName())) {
             return Result.error("登录名已被注册");
         }
         return Result.ifSuccess(userManager.newUser(userDTO));
@@ -54,12 +54,6 @@ public class UserServiceImpl implements UserService {
         return Result.ifSuccess(userManager.modifyUser(userDTO));
     }
 
-//    @Override
-//    public String sayHello(String name) {
-//        LOG.info("====》调用hello：{}", name);
-//        System.out.println("hello");
-//        return "调用dubbo成功"+name;
-//    }
 }
 
 

@@ -1,6 +1,5 @@
 package com.luoys.upgrade.uc.manager.impl;
 
-import com.luoys.common.annotation.NotNull;
 import com.luoys.common.api.NumberSender;
 import com.luoys.upgrade.uc.dao.mapper.UserMapper;
 import com.luoys.upgrade.uc.manager.UserManager;
@@ -19,8 +18,8 @@ public class UserManagerImpl implements UserManager {
 
     private final static Logger LOG = LoggerFactory.getLogger(UserManagerImpl.class);
     private final static String DEFAULT_USER_NAME = "新干旗人";
-    private final static int DEFAULT_TYPE = 2;
-    private final static int DEFAULT_STATUS = 1;
+    private final static int DEFAULT_USER_TYPE = UserTypeEnum.REGULAR.getCode();
+    private final static int DEFAULT_USER_STATUS = UserStatusEnum.NORMAL.getCode();
     private final static String SUCCESS = "成功";
 
     @Autowired
@@ -77,10 +76,10 @@ public class UserManagerImpl implements UserManager {
             userDTO.setUserName(DEFAULT_USER_NAME);
         }
         if (userDTO.getType() == null) {
-            userDTO.setType(UserTypeEnum.REGULAR.getCode());
+            userDTO.setType(DEFAULT_USER_TYPE);
         }
         if (userDTO.getStatus() == null) {
-            userDTO.setStatus(UserStatusEnum.NORMAL.getCode());
+            userDTO.setStatus(DEFAULT_USER_STATUS);
         }
         userDTO.setUserId(NumberSender.createUserId());
         LOG.info("====》新增用户：{}", userDTO);
